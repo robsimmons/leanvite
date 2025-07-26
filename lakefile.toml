@@ -1,0 +1,9 @@
+name = "leanvite"
+defaultTargets = ["leanvite"]
+
+[[lean_lib]]
+name = "Splat"
+
+[[lean_exe]]
+name = "leanvite"
+root = "Main"
