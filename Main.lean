@@ -12,5 +12,15 @@ def graph := λ input =>
    , func f
   ] |> stack
 
-#splat graph
+def x : Float := 3
+#splat λ input =>
+  let f := λ x => -0.03 * x * x + 2.7 * x + 10
+  let slope := (f (input + 0.001) - f (input - 0.001)) / 0.002
+  let yIntercept := f input - input * slope
+  #[ line (x, 0) (0, 100)
+   , line (0, 0) (100, 0)
+   , func (λ x => yIntercept + slope * x)
+   , circle (input, f input) 20
+   , func f
+  ] |> stack
 
